@@ -19,10 +19,13 @@
   },
   "homepage": "https://github.com/a932455223/gulp-demo#readme",
   "devDependencies": {
+    "autoprefixer": "^6.7.6",
     "browser-sync": "^2.18.8",
+    "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
     "gulp-contrib-copy": "^0.1.2",
     "gulp-less": "^3.3.0",
+    "gulp-postcss": "^6.3.0",
     "gulp-sass": "^3.1.0",
     "gulp-swig": "^0.8.0"
   }

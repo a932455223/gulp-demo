@@ -1,8 +1,9 @@
 {% extends 'partial/_layout.swig' %}
 
 {% block head %}
- 	<script src='/js/about.js'></script>
 	{% parent %}
+
+ 	<script src='/js/about.js'></script>
 	
  {% endblock %}
 

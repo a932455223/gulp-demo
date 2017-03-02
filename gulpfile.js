@@ -3,6 +3,9 @@ let gulp = require('gulp');
 let browserSync = require('browser-sync').create();
 let less = require('gulp-less');
 let copy = require('gulp-contrib-copy');
+let autoprefixer = require('autoprefixer'); 
+let cssnano = require('cssnano');
+let postcss = require('gulp-postcss');
 
 gulp.task('templates',function(){
 	gulp.src('./src/view/*.swig')
@@ -27,7 +30,7 @@ gulp.task('serve',['less','templates'], function() {
 
     gulp.watch("src/view/**/*.swig", ['templates',browserSync.reload]);
 
-    gulp.watch("src/js/*.js", ['copyJs']);
+    gulp.watch("src/js/*.js", ['copyJs',browserSync.reload]);
 
     gulp.watch("src/fonts/*", ['copyFt']);
 });
@@ -35,11 +38,14 @@ gulp.task('serve',['less','templates'], function() {
 
 gulp.task('less', function () {
 
+  let processors = [ autoprefixer({browsers:'last 2 version'}), cssnano ];
+
    return gulp.src("src/less/*.less")
         .pipe(less())
+        .pipe(postcss(processors))
         .pipe(gulp.dest("dist/css"))
         .pipe(browserSync.stream());
-});
+   });
 
 gulp.task('copyJs',function(){
     return gulp.src("src/js/*")
