@@ -18,7 +18,7 @@ gulp.task('templates',function(){
 });
 
 
-gulp.task('serve',['less','templates'], function() {
+gulp.task('serve',['less','templates','copyJs','copyFt','copyImg'], function() {
     browserSync.init({
         server: {
             baseDir: 'dist/'
@@ -26,7 +26,7 @@ gulp.task('serve',['less','templates'], function() {
         startPath:'/view/index.html'
     });
 
-    gulp.watch("src/less/*.less", ['less']);
+    gulp.watch("src/less/**", ['less']);
 
     gulp.watch("src/view/**/*.swig", ['templates',browserSync.reload]);
 
@@ -38,9 +38,9 @@ gulp.task('serve',['less','templates'], function() {
 
 gulp.task('less', function () {
 
-  let processors = [ autoprefixer({browsers:'last 2 version'}), cssnano ];
+  let processors = [ autoprefixer({browsers:'last 2 version'})];
 
-   return gulp.src("src/less/*.less")
+   return gulp.src("src/less/_custom/style-hg38.less")
         .pipe(less())
         .pipe(postcss(processors))
         .pipe(gulp.dest("dist/css"))
@@ -48,14 +48,20 @@ gulp.task('less', function () {
    });
 
 gulp.task('copyJs',function(){
-    return gulp.src("src/js/*")
+    return gulp.src("src/js/**")
            .pipe(copy())
            .pipe(gulp.dest('dist/js/'))
 });
 
 
+gulp.task('copyImg',function(){
+    return gulp.src("src/images/**")
+           .pipe(copy())
+           .pipe(gulp.dest('dist/images/'))
+});
+
 gulp.task('copyFt',function(){
-    return gulp.src("src/fonts/*")
+    return gulp.src("src/fonts/**")
            .pipe(copy())
            .pipe(gulp.dest('dist/fonts/'))
 });

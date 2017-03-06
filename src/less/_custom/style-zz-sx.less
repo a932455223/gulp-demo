@@ -1,0 +1,328 @@
+@import "../variables.less";
+@import "../mixins.less";
+@import "../atom.less";
+@import "../btn.less";
+@import "../loading.less";
+@import "../checkbox.less";
+
+@bgc:#642A84;
+@yec:#ffab00;//黄色
+@yecbg:#FFF4CF;//淡黄背景
+
+.mb,.mb body{height: 100%;}
+body{background-color: @bgc;background-repeat: no-repeat; background-size: cover;}
+.scrollable{overflow: auto;-webkit-overflow-scrolling: touch;}
+// #M-iscroll > .iscroll-inner {min-height: 100%;}
+
+.w150{width: 7.5rem !important;}
+.w150 ~ .field-val{margin-left: 7.5rem !important;}
+.w100{width: 5rem !important;}
+.w100 ~ .field-val{margin-left: 5rem !important;}
+
+.wrap{} 
+.page-bg{
+	background-image: url('../images/bg.jpg');
+	overflow: auto; //激活bfc
+	background-size: contain;
+	background-repeat: no-repeat;background-position: top center;
+	max-width:30.0rem; margin: 0 auto; height: 100%;  position: relative; width: 100%; 
+}
+.page-bg.page-bg-topic{
+	background-image: url('../images/bg-topic.jpg');
+}
+.logo{background-size: cover;}
+// 按钮
+.btn-guid{
+	position: absolute;z-index: 2;
+	background-color: rgba(0,0,0,.5);color:#fff;
+	padding: .2rem .2rem .5rem;line-height: .8rem;text-align: center;
+	border-radius:0 0 50% 50%;font-size: 12px;
+	width: 2.4rem; top:0; right:.5rem; 
+}
+
+// 活动主题图
+.topic,.topic-2,.topic-3,.topic-4{position: relative;background-size: cover;}
+.topic-text{
+	text-align: center;
+	p{color:#FBE0C2;font-size: 0.7rem;margin-top: 0.5rem;}
+	h1{font-size: 1.5rem;color:#F4D150;}
+}
+// 图
+.topic{width: 16.8rem;height: 11.2rem;}
+.topic-2{background-image: url('../images/topic-2.png');width: 11.2rem;height: 5.7rem;margin-top: 2rem;}
+.topic-3{background-image: url('../images/topic-3.png');width: 13.55rem;height: 5.25rem;margin-top: 2rem;}
+.topic-4{background-image: url('../images/topic-4.png');width: 11.95rem;height: 5.25rem;margin-top: 2rem;}
+
+.copyright{
+	text-align: center;color:#ad6e1c;padding-bottom: 1rem;padding-top: 1rem;
+}
+
+
+
+// 验证码 左边输入框,右边验证码
+.yzm-box{
+	position: relative;
+	width: 12.5rem;
+}
+
+// 卡片
+.card{
+	background-color: @yecbg;
+	text-align: center;border-radius:.3rem;
+	width: 90%;padding: .75rem;
+}
+
+
+// ============= 主界面 ============= 
+body{
+	background-image: url('../images/paper-bg.jpg');
+	background-repeat: repeat-y;
+	background-size: 100% 0.9rem;
+}
+.paper{
+	background-image: url('../images/paper-header.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	overflow: hidden;
+	min-height:13.65rem;
+}
+.paper-cont{
+}
+
+
+
+
+// ============= 表单 ============= 
+//  表头图片
+.form-tit-1{width: 10.3rem; margin-top: 2.85rem; } 
+.form-tit-2{width: 15.8rem; margin-top: 2rem; }
+.form-tit-3{width: 15.8rem; margin-top: 2rem; } 
+.form-tit-4{width: 10.25rem; margin-top: 2rem; } 
+
+.form-cont{
+	padding:.5rem 1.5rem;
+}
+.field{
+	.clearfix;
+	padding: .8rem 0;
+	border-bottom: 1px solid #e8ba7c;
+}
+.field-name{
+	float: left;
+	color:#C7790F;font-size: .7rem;font-weight: bold;
+	width: 3.6rem;
+}
+.field-checkbox-name{height: 1.6rem;line-height: 1.6rem;}
+.field-val{
+	margin-left: 3.6rem;
+	position: relative;
+	small{position: absolute;right: 0;color:#C7790F;font-weight: bold;}
+}
+.field-control{
+	-webkit-appearance:none;
+	border: 0;background-color: transparent;
+	font-size: 0.7rem;
+	height: 1rem;line-height: 1rem;width: 100%;
+	color:#C7790F;
+	&:focus{outline: 0;}
+	&::-webkit-input-placeholder{color:#D3A568;}
+}
+.field-select{
+	position: relative;
+	select{
+		color:#C7790F;font-size: .7rem;
+		-webkit-appearance:none;border: 0;background-color: transparent;
+		height: 1rem;line-height: 1rem;width: 100%;
+	}
+	&:after{
+		@size:0.3rem;
+		content: '';
+		position: absolute;right: 0.25rem;top:50%;margin-top: -@size/2;
+		border:@size solid transparent;
+		border-top-color: #C7790F;
+	}
+}
+.select-list{
+	padding: .4rem 0;
+	border-bottom: 0;
+	.field-name{padding-top: .4rem;}
+	.field-select select{height: 2rem;}
+	.bdb1{border-color:#C9B64A !important}
+	textarea{padding-top: 0.4rem;}
+}
+// 验证码
+.btn-yzm{
+	background-color: #E6543F;color:#fff;font-size: 12px;
+	padding: 0.5rem .8rem;
+	border-radius:0.15rem;
+	display: inline-block;
+}
+.btn-disabled{
+	background-color: rgba(0,0,0,.2) !important;
+	color:#fff !important;
+}
+.btn-start{
+	background-image: url('../images/btn.png');
+	width: 15.8rem;height: 4.25rem;
+	text-align: center;
+	background-size: cover;
+	overflow: hidden;display: block;
+	.mx-btn-tap;
+	img{margin-top: 0.73rem;}
+}
+.btn-call{
+	width: 4.85rem;height: 1.4rem;
+	background-image: url('../images/btn-call.png');background-size: cover;
+	display: block;
+}
+// 电话列表
+.field-user-tit{
+	font-size: .9rem;color:#AD680B;text-align: center;
+	margin-top: 1rem;padding-top: 1rem;width: 90%;
+	border-top: 1px dashed #C9B64A;
+	~ .form-cont{padding-top: 0;}
+}
+.field-user{
+	.clearfix;
+	border-bottom: 0;
+	padding-bottom: 0;
+	.field-name{
+		background: url(../images/u-icon.png) no-repeat left center;
+		padding-left: 1rem;
+		width: auto;line-height: 1.4rem;font-weight: normal;
+	}
+	.field-val{margin-left:0;float: right;}
+}
+// ============= 游戏主界面 End ============= 
+赢取的话费将在第二天充值到您的手机上，请您到时注意
+3、漳泽农商银行会严格对您的信息保密，请您放心填写；
+4、如您对自己的授信额度有疑义，请拨打客服热线：
+
+400-1858-886；
+5、活动时间：2017年2月22日－2017年5月1日。
+＊漳泽农商银行在法律允许范围内保留对本活动的最终解释权＊
+// 欢迎板
+.wel-board{
+	width: 90%;
+	background-color: #E51650;color:#fff;
+	border: .4rem solid #F6B300;border-radius:2rem;
+	box-shadow: 0px 7px 20px 1px rgb(216, 11, 60);
+	padding: 1rem .5rem 2rem;
+	text-align: center;
+}
+
+// 文章
+.article{
+	overflow: hidden;
+	padding:1rem;
+	color:#fff;
+	h1 {font-size: 1rem;}
+	h2 {font-size: .9rem;}
+	h3 {font-size: .8rem;}
+	h4 {font-size: .7rem;}
+	h5 {font-size: .6rem;}
+	h6 {font-size: 12px;}
+}
+
+// 标题
+.article-tit{
+	color:@yec;font-size: 1rem;font-weight: bold;text-align: center;line-height: 2.2rem;
+	// 两个不同颜色的背景
+	&-t1,&-t2{background-size: cover;}
+}
+
+.article-ul{
+	margin-top: 1rem;
+	ul{list-style:decimal;padding-left: 1.5rem;}
+	ul li {margin-bottom: .5rem;}
+}
+.article-table{
+	table{
+		width: 100%;
+		background-color: #FFAD00;
+		border-collapse:collapse;
+		tr:last-child td{border-bottom: 0;}
+		tr td{color:#EF1A4B;padding: 0.35rem .5rem;border-bottom: 1px dashed #F09A00;}
+		tr td:first-child{background-color: #FFCD19;color:#C07600;width: 4.5rem;text-align: right;}
+	}
+}
+.article-btn{
+	.mx-btn-tap;
+	padding: .5rem 1rem;
+	color:#ffab00;
+	border: .1rem solid #ffab00;
+}
+
+// 输入框
+.form-input{
+	-webkit-appearance:none;border: 0;border-radius:0;
+	height: 2.2rem;line-height: 2.2rem;
+	font-size: .8rem;font-weight: bold;display: block;
+	padding: 0 .6rem;
+	width: 12.5rem;
+}
+// 单选框
+.y-checkbox{
+	float: left;
+  color: #C7790F;
+  input[type="radio"]{border-color: #C7790F;}
+  input:checked:before{background-color: #C7790F;}
+}
+
+// 遮罩
+.mask{
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: hidden;
+  &.active{display: block;}
+}
+.mask-bg{
+  position: absolute;
+  z-index: -1;
+  top:0;left: 0;
+  width: 100%;height: 100%;
+  background-color: rgba(208,26,18,.9);
+}
+.mask-header{
+	text-align: center;
+	position: relative;
+	padding: 1rem;
+	.title{line-height: 2rem;color:#fff;}
+	> h1 {font-size: 1rem;}
+	> h2 {font-size: .9rem;}
+	> h3 {font-size: .8rem;}
+}
+.close-btn{
+  transform-origin:50% 50%;
+  z-index: 100;
+  position: absolute;
+  width: 2.0rem;
+  height: 2rem;
+  background-color: #fff;
+  &:before{transform:rotate(45deg)}
+  &:after{transform:rotate(-45deg)}
+  &:before,&:after{
+    content:'';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-top: -.6rem;
+    width: 0.1rem;
+    height: 1.2rem;
+    background-color:  rgb(232,17,71);
+  }
+}
+.mask-cont{
+	width: 100%;bottom: 1rem;top:4rem;position: absolute;
+}
+.qrcode{
+	text-align: center;
+	img{border: .75rem solid #fff;}
+}
+.qrcode-txt{font-size: .9rem;color:#F8E81C;margin-top: .5rem;text-align: center;}

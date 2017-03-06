@@ -1,0 +1,219 @@
+@import "../variables.less";
+@import "../mixins.less";
+@import "../atom.less";
+@import "../btn.less";
+@import "../mask.less";
+@import "../loading.less";
+
+@bgc:#ef513a;
+@sec:#6F19BA;//紫色
+@yec:#F8E81C;//黄色
+@yecbg:#FFF4CF;//淡黄背景
+.mb,.mb body{height: 100%;}
+body{background-color: @bgc;background-repeat: no-repeat; background-size: cover;}
+.cent-block{margin: 0 auto;}
+.wrap{
+	overflow: auto; //激活bfc
+	max-width:30.0rem; margin: 0 auto; height: 100%; min-height: 31rem; position: relative; width: 100%; 
+	background-image: url('../images/bg.jpg');background-size: cover;
+}
+
+// 公共
+.qrcode{
+	text-align: center;
+	img{border: .75rem solid #fff;}
+}
+.qrcode-txt{font-size: .9rem;color:#F8E81C;margin-top: .5rem;text-align: center;}
+.logo{
+	@width:390/20rem;@height:66/20rem; //宽高表示图片的尺寸
+	width: @width*.7;height: @height*.7;
+	background-image: url('../images/logo.png');background-size: cover;
+	&-sm{width: @width*.5;height: @height*.5;}
+}
+// 活动规则按钮
+.guid-btn{
+	text-align: center;
+	margin-right: .5rem;
+	font-size: .6rem;
+	line-height:.8rem;
+	padding:.3rem .3rem .6rem;
+	width:2rem;
+	border-radius:0 0 1rem 1rem;
+	background-color: rgba(0,0,0,.5);color: #fff;
+}
+// 活动主题图
+.main-header{
+	background-image: url('../images/main-header.png');background-size: contain;background-repeat: no-repeat;
+	padding-top: 9.0rem;
+	.time{
+		border-radius:1.0rem;
+		background-color: #B81CCE;color:#fff;
+		font-weight: bold;text-align: center;
+		padding: .5rem 0.25rem;width: 12rem;margin:0 auto 0.25rem;
+	}
+}
+// 欢迎板
+.wel-board{
+		width: 90%;margin: 0 auto;
+		background-color: #E51650;color:#fff;
+		border: .3rem solid #F6B300;border-radius:0.25rem;
+		padding: 0.5rem .5rem;
+		text-align: center;
+		h1{margin-bottom: .5rem;}
+		.notice{font-size: 0.6rem;}
+
+}
+// 浅蓝色卡片
+.card{
+	background-color: @yecbg;
+	text-align: center;border-radius:.3rem;
+	width: 90%;padding: .75rem;
+}
+// 输入框
+.form-input{
+	font-size: 1rem;font-weight: bold;
+	padding: 0.5rem .25rem;
+	width: 12.5rem;
+}
+// 用户列表
+.user-list{
+	.user-item{margin-bottom: 0.75rem;}
+}
+.user-item{
+	.flexbox;
+	.u-img.imglazy{width: 2.8rem;height: 2.8rem;border-radius:3rem;overflow: hidden;}
+	.u-info{margin-left: 1rem;text-align: left;width: 100%;flex:1;}
+}
+
+// 负责人-人员管理
+.page-satff{
+	text-align: center;
+	padding-top: 1rem;
+	.tit{color: #F8E81C;font-size: 1.2rem;margin: .5rem 0 1rem;}
+	.group{
+		margin-top: 1.0rem;
+}
+	.group-tit{
+		font-size: 1.2rem;font-weight: bold;
+		margin: 0 auto -20px;position: relative;z-index: 10;border-radius: .2rem;
+		background-color: #F6A623;width: 13.35rem;height: 2.5rem;line-height: 2.5rem;color:#565656}
+}
+.group-box{
+	width: 16.5rem;
+	padding: 2rem 1rem 1rem;
+	background-color: @yecbg;
+	margin: 0 auto 1rem;
+	border-radius:0.25rem;
+}
+
+// 中奖列表
+.page-win-list{
+	.tit{margin: 2.5rem auto 0.85rem;width: 13.35rem;text-align: center;padding: .5rem 0;border-radius:.3rem;background-color: @sec;color:@yec}
+	.win-list{.win-item{margin-bottom: .3rem;}}
+	.win-item{
+		padding: .5rem 1rem;
+		background-color: @yecbg;
+		width: 85%;
+		margin: 0 auto;
+		border-radius:0.25rem;
+		.fl{width: 4.0rem;}
+		.cell{padding-left: 0.5rem;}
+	}
+}
+// 运营中奖码
+.page-mtcode{
+	padding-top: 1rem;
+	.tit{}
+	.note{margin: 1.5rem 0;}
+	.code{font-size: 40px;font-weight: bold;}
+}
+// 运营选择类型
+.page-mtselect{
+	margin-bottom: 1.5rem;
+	.mtselect-list{margin-top: 1rem;}
+	.select-btn{
+		.mx-btn-tap;
+		background-color: #F6B300;border-radius:.5rem;
+		width: 14.4rem;height: 2.9rem;margin: .2rem auto;
+		line-height: 2.9rem;
+		color:#D0011B;text-align: center;font-weight: bold;font-size: 1rem;
+		&.active{background-color: #FC7E00;}
+	}
+}
+.submit-btn{
+	.mx-btn-tap;
+	background-color: @sec;border-radius:2rem;
+	width: 14.4rem;height: 2.9rem;margin: .2rem auto;
+	line-height: 2.9rem;
+	color:@yec;text-align: center;font-weight: bold;font-size: 1rem;
+	&.active{background-color: #FC7E00;}
+}
+
+// 客户中奖
+.page-custwin{
+	margin-top: 1rem;
+	.header{width: 90%;margin-bottom: 1rem;}
+}
+// 客户填写抽奖号
+.page-custform{
+	.form-input{margin: 3rem 0;}
+}
+// 游戏主界面
+.page-game{
+	.header{position: relative;z-index: 10;}
+}
+.game-wrap{
+	@gap:.5rem; //格子间距
+	width: 16.5rem;height: 16.5rem;position: relative;
+	background-color: #53129F;border: .5rem solid #7A20C7;
+	border-radius:1rem;padding: 0.5rem;margin-top: -1rem;
+	.game-inner{
+		height: 100%;
+		background-color: #450C83;
+		border-radius:.5rem;
+		padding: @gap;
+		ul{margin-right: -@gap;margin-bottom: -@gap;}
+	}
+	.game-box{
+		padding-right: @gap;
+		margin-bottom: @gap;
+		position: relative;
+	}
+	.game-box-inner{
+		background-color: #B95CC6;
+		border-radius:0.4rem;
+		.imglazy{width: 100%;&:after{background-color: transparent;}}
+		&.active{background-color: @yec;}
+	}
+	.game-box-start{
+		.mx-btn-tap;
+		background-color: #F6B300;
+		border-radius:5.0rem;overflow: hidden;position: relative;
+		margin-top: -.2rem;margin-left: -.2rem;
+		box-shadow: 0.2rem .2rem #AC800A;
+		h1{
+			font-size: 1.4rem;line-height: 1.2;color:#E51650;
+			.flexbox;align-items:center;justify-content:center;
+			position: absolute;width: 100%;height: 100%;top:0;left: 0;text-align: center;
+		}
+		&:after{content:'';padding-top: 100%;display: block;}
+	}
+}
+
+// 活动规则
+.rule-info{
+	padding: 1.0rem;
+	color:@yec;
+}
+.rule-tit{
+	font-size: 1rem;font-weight: bold;
+	border: 1px solid @yec;
+	border-radius:1.0rem;
+	padding: .25rem 0.75rem;
+	display: inline-block;
+}
+.rule-cnt{
+	margin-top: .75rem;
+	ul{list-style:decimal;padding-left: 1.5rem;}
+	ul li {margin-bottom: .5rem;}
+}

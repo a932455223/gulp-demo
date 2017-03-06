@@ -1,0 +1,63 @@
+  @fa-font-path: '../fonts';
+  @fa-font: 'iconfont';
+  @fa-font-name: 'iconfont';
+  @fa-version: '1.0.1';
+
+@font-face {
+  font-family: @fa-font;
+  src: ~"url('@{fa-font-path}/@{fa-font-name}.eot?v=@{fa-version}')";
+  src: ~"url('@{fa-font-path}/@{fa-font-name}.eot?#iefix&v=@{fa-version}') format('embedded-opentype')",
+  ~"url('@{fa-font-path}/@{fa-font-name}.woff?v=@{fa-version}') format('woff')",
+  ~"url('@{fa-font-path}/@{fa-font-name}.ttf?v=@{fa-version}') format('truetype')",
+  ~"url('@{fa-font-path}/@{fa-font-name}.svg?v=@{fa-version}#fontawesomeregular') format('svg')";
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Catchall baseclass
+.ic {
+  display: inline-block;
+  font-family: 'iconfont';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: text-top;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@ic-search:'\e600';.ic-search{&:before{content:@ic-search;}}
+@ic-ok:'\e614';.ic-ok{&:before{content:@ic-ok;}}
+@ic-cog:'\e602';.ic-cog{&:before{content:@ic-cog;}}
+@ic-plus:'\e603';.ic-plus{&:before{content:@ic-plus;}}
+@ic-minus:'\e604';.ic-minus{&:before{content:@ic-minus;}}
+@ic-sort:'\e605';.ic-sort{&:before{content:@ic-sort;}}
+@ic-close:'\e606';.ic-close{&:before{content:@ic-close;}}
+@ic-del:'\e607';.ic-del{&:before{content:@ic-del;}}
+@ic-date:'\e608';.ic-date{&:before{content:@ic-date;}}
+@ic-desc:'\e609';.ic-desc{&:before{content:@ic-desc;}}
+                 .ic-arrow{&:before{content:@ic-desc;}}
+@ic-back-c:'\e60a';.ic-back-c{&:before{content:@ic-back-c;}}
+@ic-help:'\e60b';.ic-help{&:before{content:@ic-help;}}
+@ic-asc:'\e60c';.ic-asc{&:before{content:@ic-asc;}}
+@ic-exam:'\e60d';.ic-exam{&:before{content:@ic-exam;}}
+@ic-teach:'\e60e';.ic-teach{&:before{content:@ic-teach;}}
+@ic-sort-asc:'\e60f';.ic-sort-asc{&:before{content:@ic-sort-asc;}}
+@ic-sort-desc:'\e610';.ic-sort-desc{&:before{content:@ic-sort-desc;}}
+@ic-arrl:'\e611';.ic-arrl{&:before{content:@ic-arrl;}}/* 箭头左 */
+@ic-arrr:'\e612';.ic-arrr{&:before{content:@ic-arrr;}}/* 箭头右 */
+@ic-edit:'\e613';.ic-edit{&:before{content:@ic-edit;}}
+@ic-data:'\e616';.ic-data{&:before{content:@ic-data;}}
+@ic-gps:'\e617';.ic-gps{&:before{content:@ic-gps;}}
+@ic-qy:'\e618';.ic-qy{&:before{content:@ic-qy;}}/* 店铺 */
+@ic-info:'\e601';.ic-info{&:before{content:@ic-info;}}
+@ic-more:'\e615';.ic-more{&:before{content:@ic-more;}}
+@ic-luru:'\e619';.ic-luru{&:before{content:@ic-luru;}}
+@ic-arr:'\e61a';.ic-arr{&:before{content:@ic-arr;}}
+@ic-confirm:'\e61b';.ic-confirm{&:before{content:@ic-confirm;}}
+@ic-fold:'\e61c';.ic-fold{&:before{content:@ic-fold;}} /*折叠*/
+@ic-more:'\e61d';.ic-more{&:before{content:@ic-more;}} 
+@ic-local:'\e61e';.ic-local{&:before{content:@ic-local;}} 
+@ic-print:'\e61f';.ic-print{&:before{content:@ic-print;}} 
+@ic-flag:'\e621';.ic-flag{&:before{content:@ic-flag;}} 
+

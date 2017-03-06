@@ -1,0 +1,196 @@
+.dd{background-size: cover;}
+.aa{display:flex}
+@import "../variables.less";
+@import "../mixins.less";
+@import "../atom.less";
+@import "../btn.less";
+@import "../loading.less";
+
+@bgc:#642A84;
+@yec:#ffab00;//黄色
+@yecbg:#FFF4CF;//淡黄背景
+
+.mb,.mb body{height: 100%;}
+body{background-color: @bgc;background-repeat: no-repeat; background-size: cover;}
+#M-iscroll{overflow: hidden;width: 100%;bottom: 1rem;position: absolute;top:4rem}
+#M-iscroll > .iscroll-inner {min-height: 100%;}
+
+.wrap{} 
+.page-bg{
+	overflow: auto; //激活bfc
+	background-size: cover;
+	background-repeat: no-repeat;background-position: top center;
+	max-width:30.0rem; margin: 0 auto; height: 100%;  position: relative; width: 100%; 
+}
+.logo{background-size: cover;}
+// 按钮
+.btn-guid{.mx-btn-tap;width: 2.4rem; top:0.7rem; right:.5rem; }
+
+// 活动主题图
+.topic{position: relative;background-size: cover;}
+
+.copyright{
+	text-align: center;color:#baa3c7;padding-bottom: 1rem;padding-top: 1rem;
+}
+
+// 验证码 左边输入框,右边验证码
+.yzm-box{
+	position: relative;
+	width: 12.5rem;
+}
+
+// 卡片
+.card{
+	background-color: @yecbg;
+	text-align: center;border-radius:.3rem;
+	width: 90%;padding: .75rem;
+}
+
+
+// ============= 游戏主界面 ============= 
+.page-game{}
+
+// 大转盘
+.dzp{
+	width: 16.0rem;height: 16rem;
+	margin: 0 auto;
+	background-size: cover;
+	position: relative;
+}
+.dzp-info{
+	color:#fff;font-size: .7rem;text-shadow:0 1px 0 rgba(0,0,0,.1);
+	text-align: center;
+	b{font-size: .9rem;color:#FFD563;}
+}
+.point{
+	width:5.2rem;height:5.2rem;
+	position: absolute;top:50%;left: 50%;margin-top: -2.6rem;margin-left: -2.6rem;
+	background-size: cover;
+
+}
+.point-start{
+	width:3rem;height:3rem;
+	position: absolute;top:50%;left: 50%;margin-top:-1.5rem ;margin-left: -1.5rem;
+	background-size: cover;
+}
+a.btn-start{display: block;}
+.btn-start{.mx-btn-tap;background-size: cover;}
+// ============= 游戏主界面 End ============= 
+
+// 欢迎板
+.wel-board{
+	width: 90%;
+	background-color: #E51650;color:#fff;
+	border: .4rem solid #F6B300;border-radius:2rem;
+	box-shadow: 0px 7px 20px 1px rgb(216, 11, 60);
+	padding: 1rem .5rem 2rem;
+	text-align: center;
+}
+
+// 文章
+.article{
+	overflow: hidden;
+	padding:1rem;
+	color:#fff;
+	h1 {font-size: 1rem;}
+	h2 {font-size: .9rem;}
+	h3 {font-size: .8rem;}
+	h4 {font-size: .7rem;}
+	h5 {font-size: .6rem;}
+	h6 {font-size: 12px;}
+}
+
+// 标题
+.article-tit{
+	color:@yec;font-size: 1rem;font-weight: bold;text-align: center;line-height: 2.2rem;
+	// 两个不同颜色的背景
+	&-t1,&-t2{background-size: cover;}
+}
+
+.article-ul{
+	margin-top: 1rem;
+	ul{list-style:decimal;padding-left: 1.5rem;}
+	ul li {margin-bottom: .5rem;}
+}
+.article-table{
+	table{
+		width: 100%;
+		background-color: #FFAD00;
+		border-collapse:collapse;
+		tr:last-child td{border-bottom: 0;}
+		tr td{color:#EF1A4B;padding: 0.35rem .5rem;border-bottom: 1px dashed #F09A00;}
+		tr td:first-child{background-color: #FFCD19;color:#C07600;width: 4.5rem;text-align: right;}
+	}
+}
+.article-btn{
+	.mx-btn-tap;
+	padding: .5rem 1rem;
+	color:#ffab00;
+	border: .1rem solid #ffab00;
+}
+
+// 输入框
+.form-input{
+	-webkit-appearance:none;border: 0;border-radius:0;
+	height: 2.2rem;line-height: 2.2rem;
+	font-size: .8rem;font-weight: bold;display: block;
+	padding: 0 .6rem;
+	width: 12.5rem;
+}
+
+
+// 遮罩
+.mask{
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: hidden;
+  &.active{display: block;}
+}
+.mask-bg{
+  position: absolute;
+  z-index: -1;
+  top:0;left: 0;
+  width: 100%;height: 100%;
+  background-color: rgba(232,17,71,.9);
+}
+.mask-header{
+	text-align: center;
+	position: relative;
+	padding: 1rem;
+	.title{line-height: 2rem;color:#fff;}
+	> h1 {font-size: 1rem;}
+	> h2 {font-size: .9rem;}
+	> h3 {font-size: .8rem;}
+}
+.close-btn{
+  .mx-btn-tap;
+  z-index: 100;
+  position: absolute;
+  width: 2.0rem;
+  height: 2rem;
+  background-color: #fff;
+  &:before{transform:rotate(45deg)}
+  &:after{transform:rotate(-45deg)}
+  &:before,&:after{
+    content:'';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    margin-top: -.6rem;
+    width: 0.1rem;
+    height: 1.2rem;
+    background-color:  rgb(232,17,71);
+  }
+}
+
+.qrcode{
+	text-align: center;
+	img{border: .75rem solid #fff;}
+}
+.qrcode-txt{font-size: .9rem;color:#F8E81C;margin-top: .5rem;text-align: center;}

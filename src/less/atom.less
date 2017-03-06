@@ -1,0 +1,205 @@
+// 中奖名单
+/*
+<article class="prz-list" title="中奖名单">
+  <div class="prz-list-box cent-block">
+    <h1>中奖名单</h1>
+    <ul class="prz-list-ulist">
+      <li>
+        <div class="uface imglazy"><span style="background-image: url(http://t.cn/Rtt0XX4);"></span></div>
+        <div class="ucnt">
+          <div class="uafter">5分</div>
+          <div class="uinfo">
+            <div class="utit">136****26363</div>
+            <div class="usubtit">2016/09/09 13:12:12</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</article>
+*/
+.prz-list{
+  padding-bottom: 1.0rem;
+  color:#256D1E;
+  p{margin: 0;margin-top: 0.25rem;}
+  h1{text-align: center;font-size: 1.2rem;font-weight: 300;margin: 0.9rem 0;}
+
+  /* user-list */
+    &-ulist{
+
+      ul& {padding:0 1rem;margin: 0;}
+      ul& li{list-style: none;}
+
+      .uface{
+        width: 1.65rem;height:1.65rem;
+        span{border-radius: 50%;overflow: hidden;}
+        border-radius: 50%;overflow: hidden;
+        float: left;
+        img{max-width:100%}
+      }
+      .ucnt{margin-left: 2rem;}
+      .uinfo{margin-right: 2rem;font-size: 0.6rem;}
+      .usubtit{font-size: 0.6rem;margin-top: 0rem;opacity: .75;}
+      .uafter{float: right;line-height: 1.5rem;font-size: 0.7rem;color:#FD551F}
+    }
+
+}
+.prz-list-box{overflow: hidden;border-radius:0.5rem;background-color: rgba(255, 255, 255, .3); 
+  width: 17.0rem;}
+.prz-list-box ul{font-size: 0.7rem;list-style: decimal;margin-bottom: 2rem}
+.prz-list-box ul li{margin-bottom: 0.75rem;}
+
+// <div class="empty"><div class="nodata"></div><h3>暂无数据</h3></div>
+// 暂无数据
+  .empty{
+    text-align: center;
+    color:#7f8fa3;
+    font-size: 16px;
+    .nodatas{
+      text-align: center;
+      background: url(../images/no-promoters@2x.png) no-repeat center top;
+      background-size: cover;
+      width: 384px/2;
+      height:196px/2;
+      margin: 0 auto;
+    }
+    h3{
+      font-weight: bold;
+      font-size: 1.5rem;
+      color:#bec2ca;
+      text-shadow: 0px 1px 0px #fff;
+    }
+    // .ic{color:#ccc;font-size: 40px;display: block;margin-bottom: 10px;}
+    p{
+      font-size: 12px;
+      line-height: 18px;
+      color: #4e4e5b;
+      margin-bottom: 30px;
+    }
+  }
+
+/* 
+  ========== select箭头 ==========
+  <div class="item-select">
+    <select><option></option></select>
+  </div>
+*/
+.item-select{
+  position: relative;
+  &:after{
+    content:'\e610';
+    display: inline-block;
+    position:absolute;
+    right: 0;
+    top:50%;
+    transform:translateY(-50%);
+    font-size: 0.6rem;
+    font-family: "iconfont-sm" !important;
+  }
+}
+
+/* 
+  ========== 标签 ==========
+*/
+.tag{
+  float: left;
+  height: 24px;
+  line-height: 24px;
+  max-width: 180px;
+  margin: 1px 0;
+  padding: 0 10px;
+  margin-right: 4px;
+  outline: none;
+  border-radius: 12px;
+  background-color: #F3F3F3;
+  border: 1px solid #CECECE;
+  color: #000;
+}
+.tag-info{
+ 	background-color: #d4ecff;
+  border: 1px solid #afd4ed;
+  color: #000;
+}
+.tag-success{
+  background-color: #5cc369;
+  border: 1px solid #5cc369;
+  color: #000;
+}
+.tag-danger{
+  background-color: red;
+  border: 1px solid red;
+  color: #000;
+}
+.tag.tag-sm{
+  font-size: 12px;
+  padding: 0 4px;
+  line-height: inherit;
+  height:inherit;
+  border-radius: 3px;
+}
+.tag-custom{
+  background-color: transparent;
+  &.tag-info{color:#afd4ed;}
+  &.tag-success{color:#5cc369;}
+  &.tag-danger{color:red;}
+}
+
+
+/* 
+  ========== 图片组 ==========
+  dl.img-group.avg-sm-4
+    dd>(.img-item>.imglazy>span[style=:background-image:url();])+.close-btn
+    dd>.img-item.img-upload>.imglazy>span[style=:background-image:url();])
+*/
+.img-group{
+  .clearfix;
+  padding-bottom: .5rem;
+  padding-right: .7rem;
+  background-color: #fff;
+  .imglazy{width: inherit;}
+
+  
+  dd{
+    .img-item{margin-left: 0.7rem;position: relative;
+      img{max-width: 100%}
+    }
+    margin-top: 0.5rem;
+    position: relative;
+    .img{
+      position: absolute;
+      background-position: center center;
+      background-size:cover;
+      width: 100%;
+      height: 100%;
+    }
+    .close-btn{z-index: 10;}
+  }
+  .img-upload{
+    display: block;
+    padding: 1px;
+    border: 1px solid #C5C5C5;
+  }
+  /*图片对齐方式-右对齐*/
+  &.img-group-right dd .img-item{margin-left: 0;margin-right: .7rem;}
+}
+
+// 角标
+	.badge{
+	  display: inline-block;
+	  text-align: center;
+	  background: @brand-info;
+	  color: #fff;
+	  font-size: 11px;
+	  height: 16px;
+	  line-height: 16px;
+	  -webkit-border-radius: 8px;
+	  padding: 0 6px;
+	  -webkit-background-clip: padding-box;
+	  background-clip: padding-box;
+	}
+	.badge-success{background: @brand-success}
+	.badge-warning{background: @brand-warning}
+	.badge-danger{background: @brand-danger}
+	.badge-primary{background: @brand-primary}
+	.badge-second{background: @brand-second}
+	.badge-default{background: @brand-default}

@@ -1,0 +1,201 @@
+// 按钮触摸事件
+.mx-btn-tap{
+  transition:transform .1s;
+  -webkit-tap-highlight-color:rgba(255,255,255,0);
+  &:active,&:focus{transform:scale(.9);}
+}
+
+// flexbox
+
+// Bootstrap Mixings
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// 多行截取
+.mx-eps(@lines, @line-height: 1.3em) {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @lines;
+  overflow: hidden;
+  line-height: @line-height;
+  max-height: @line-height * @lines;
+}
+
+
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 重置ul样式
+.reset-ul(){list-style: none;margin-bottom: 0;padding-left: 0;}
+.rsul(){list-style: none;margin-bottom: 0;padding-left: 0;}
+.reset-filter() {
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+// gride-avg
+.make-avg-grid(@point: sm, @counter: @grid-columns, @i: 1) when (@i =< @counter) {
+  .avg-@{point}-@{i} > li,.avg-@{point}-@{i} > dd {
+    width: (100% / @i);
+
+    &:nth-of-type(n) {
+      clear: none;
+    }
+
+    &:nth-of-type(@{i}n+1) {
+      clear: both;
+    }
+  }
+
+  .make-avg-grid(@point, @counter, (@i + 1));
+}
+
+// 1px border
+@bdc:#e7e7e7;
+.creat-bd{
+  content: "";
+  position: absolute;
+}
+  .creat-bdb(@mxBorderColor:@bdc){
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background-color:@mxBorderColor;
+    transform: scaleY(0.5);
+  }
+  .creat-bdt(@mxBorderColor:@bdc){
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 1px;
+    background-color: @mxBorderColor;
+    transform: scaleY(0.5);
+  }
+  .creat-bdr(@mxBorderColor:@bdc){
+    right:0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: @mxBorderColor;
+    transform: scaleX(0.5);
+  }
+  .creat-bdl(@mxBorderColor:@bdc){
+    left:0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: @mxBorderColor;
+    transform: scaleX(0.5);
+  }
+
+
+.mx-bdb(@mxBorderColor:@bdc){.creat-bd; .creat-bdb(@mxBorderColor); }
+.mx-bdt(@mxBorderColor:@bdc){.creat-bd; .creat-bdt(@mxBorderColor); }
+.mx-bdr(@mxBorderColor:@bdc){.creat-bd; .creat-bdr(@mxBorderColor); }
+.mx-bdl(@mxBorderColor:@bdc){.creat-bd; .creat-bdl(@mxBorderColor); }
+.mx-bd-reset(){
+  content: initial;
+  position: inherit;
+  background-color: inherit;
+  left: inherit;
+  top: inherit;
+  bottom: inherit;
+  right: inherit;
+  width: inherit;
+  height: inherit;
+  transform: inherit;
+}
+
+.flexbox() {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.flex-wrap(@fw) when (@fw = nowrap) {
+    -webkit-box-lines: single;
+    -moz-box-lines: single;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: none;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+.flex-wrap(@fw) when (@fw = wrap) {
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.flex-wrap(@fw) when not (@fw = wrap) and not (@fw = nowrap) {
+    -webkit-flex-wrap: @fw;
+    -ms-flex-wrap: @fw;
+    flex-wrap: @fw;
+}
+.flex-shrink(@fs) {
+    -webkit-flex-shrink: @fs;
+    -ms-flex: 0 @fs auto;
+    flex-shrink: @fs;
+}
+.justify-content(@jc) when (@jc = flex-start) {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+.justify-content(@jc) when (@jc = flex-end) {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+.justify-content(@jc) when (@jc = space-between) {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+.justify-content(@jc) when not (@jc = flex-start) and not (@jc = flex-end) and not (@jc = space-between) {
+    -webkit-box-pack: @jc;
+    -ms-flex-pack: @jc;
+    -webkit-justify-content: @jc;
+    justify-content: @jc;
+}
+.align-items(@ai) when (@ai = flex-start) {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+.align-items(@ai) when (@ai = flex-end) {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+.align-items(@ai) when not (@ai = flex-start) and not (@ai = flex-end) {
+    -webkit-box-align: @ai;
+    -ms-flex-align: @ai;
+    -webkit-align-items: @ai;
+    align-items: @ai;
+}
+.align-content(@ai) {
+    -ms-flex-line-pack: @ai;
+    -webkit-align-content: @ai;
+    align-content: @ai;
+}
+.align-self(@as) {
+    -ms-flex-item-align: @as;
+    -webkit-align-self: @as;
+    align-self: @as;
+}

@@ -1,0 +1,104 @@
+@import "variables.less";
+@import "mixins.less";
+@import "util.less";
+*{box-sizing: border-box;}
+body{
+  padding: 0;margin: 0;
+  font-family: PingFang SC, "Helvetica Neue", Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Arial,sans-serif;
+  line-height: 1.4286;
+  color: #333;
+  font-size: 14px;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+body img{max-width:100%;vertical-align: middle;}
+ul{.rsul;}
+.hidden{display: none !important;}
+.show{display: block !important;}
+.rsul(){list-style: none;margin-bottom: 0;padding-left: 0;margin-top: 0;}
+.clear{.clearfix;}
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+.flexbox(){
+	display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.flex(@n){
+	-webkit-box-flex: @n;
+	-ms-flex: @n;	
+	flex:@n;			
+}
+.justify(){
+	-webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.align-items(){
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+@-webkit-keyframes rotate {
+  0% {-webkit-transform: rotate(0deg); }
+  100% {-webkit-transform: rotate(1720deg); }
+}
+.rotate {-webkit-animation: rotate 1s 0s ease both; }
+
+// 字体
+.t-impact{font-family: "Impact";}
+.t-tahoma{font-family: "Tahoma";}
+.progress_bar{
+  position: absolute;
+  top:50%;
+  left:50%;
+  width:8.0rem;
+  border-radius:0.5rem;
+  background:#999;
+  padding:0.15rem;
+  -webkit-transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%);
+  > div {transition:width 0.2s linear;}
+}
+
+// 图片懒加载
+.imglazy{
+  width: 100px;
+  position: relative;
+  > span{
+    position: absolute;
+    background-position: center center;
+    background-size:cover;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  &:after{
+    padding-top: 100%;
+    content: '';
+    display: block;
+    background: #e1e1e1 ;
+    background-position: center center;
+    background-size: cover;
+    z-index: 1;
+  }
+}
+
+// 阻止滚动
+.noscroll,
+.noscroll body {
+    overflow: hidden;
+}
+.noscroll body {
+    position: relative;
+}

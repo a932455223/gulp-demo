@@ -1,0 +1,23 @@
+// <label class="y-checkbox"><input type="radio" checked>有</label>
+.y-checkbox{
+  line-height: 1.3rem;
+  vertical-align: middle;
+
+  input[type="radio"]{
+    position: relative;
+    -webkit-appearance:none;border: 0;border-radius:0;
+    display: inline-block;vertical-align: middle;
+    width: 1.3rem;height: 1.3rem;
+    background-color: #fff;border: 1px solid #000;border-radius:50%;
+  }
+
+  input:focus{outline: 0}
+  input:checked:before{
+    content:'';
+    position: absolute;
+    top: 50%;left: 50%;margin-left: -.35rem;margin-top: -.35rem;
+    width:  .7rem;height: .7rem;
+    background-color: #000;border-radius:50%;
+  }
+}
+
