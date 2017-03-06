@@ -6,41 +6,49 @@ let copy = require('gulp-contrib-copy');
 let autoprefixer = require('autoprefixer'); 
 let cssnano = require('cssnano');
 let postcss = require('gulp-postcss');
-
-gulp.task('templates',function(){
-	gulp.src('./src/view/*.swig')
-	.pipe(swig({
-        defaults:{
-            cache:false
-        }
-    }))
-	.pipe(gulp.dest('./dist/view/'))
-});
+var plumber = require('gulp-plumber');
 
 
-gulp.task('serve',['less','templates','copyJs','copyFt','copyImg'], function() {
+
+
+gulp.task('serve',['less','templates','copyJs','copyFt'], function() {
     browserSync.init({
         server: {
             baseDir: 'dist/'
         },
-        startPath:'/view/index.html'
+        startPath:'/view/index.html',
+        // open:false
     });
 
     gulp.watch("src/less/**", ['less']);
 
     gulp.watch("src/view/**/*.swig", ['templates',browserSync.reload]);
 
-    gulp.watch("src/js/*.js", ['copyJs',browserSync.reload]);
+    gulp.watch("src/js/**", ['copyJs',browserSync.reload]);
 
-    gulp.watch("src/fonts/*", ['copyFt']);
+    gulp.watch("src/fonts/**", ['copyFt']);
+    gulp.watch("src/images/**", ['copyImg']);
+});
+
+
+gulp.task('templates',function(){
+  gulp.src('./src/view/*.swig')
+  .pipe(plumber())
+  .pipe(swig({
+        defaults:{
+            cache:false
+        }
+    }))
+  .pipe(gulp.dest('./dist/view/'))
 });
 
 
 gulp.task('less', function () {
 
-  let processors = [ autoprefixer({browsers:'last 2 version'})];
+  let processors = [ autoprefixer({browsers:'last 2 version'}), cssnano ];
 
-   return gulp.src("src/less/_custom/style-hg38.less")
+   return gulp.src(["src/less/yepcss-h5.less","src/less/_custom/style-hg38.less"])
+        .pipe(plumber())
         .pipe(less())
         .pipe(postcss(processors))
         .pipe(gulp.dest("dist/css"))
@@ -54,16 +62,16 @@ gulp.task('copyJs',function(){
 });
 
 
-gulp.task('copyImg',function(){
-    return gulp.src("src/images/**")
-           .pipe(copy())
-           .pipe(gulp.dest('dist/images/'))
-});
-
 gulp.task('copyFt',function(){
     return gulp.src("src/fonts/**")
            .pipe(copy())
            .pipe(gulp.dest('dist/fonts/'))
+});
+
+gulp.task('copyImg',function(){
+    return gulp.src("src/images/**")
+           .pipe(copy())
+           .pipe(gulp.dest('dist/images/'))
 });
 
 gulp.task('default', ['serve']);
