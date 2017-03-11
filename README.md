@@ -14,4 +14,4 @@ npm start
 [swig-template](http://node-swig.github.io/swig-templates/)
 
 ### css precompile
-项目使用 `less` 来编译
+项目使用 `less` 编译生成`css`文件，并使用`postcss`的`autoprefixer`和`nano`
