@@ -24,6 +24,7 @@
     "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
     "gulp-contrib-copy": "^0.1.2",
+    "gulp-imageisux": "^1.0.5",
     "gulp-less": "^3.3.0",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.3.0",

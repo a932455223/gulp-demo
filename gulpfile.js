@@ -3,11 +3,11 @@ let gulp = require('gulp');
 let browserSync = require('browser-sync').create();
 let less = require('gulp-less');
 let copy = require('gulp-contrib-copy');
-let autoprefixer = require('autoprefixer'); 
+let autoprefixer = require('autoprefixer');
 let cssnano = require('cssnano');
 let postcss = require('gulp-postcss');
-var plumber = require('gulp-plumber');
-
+let plumber = require('gulp-plumber');
+let imageisux = require('gulp-imageisux');
 
 
 
@@ -27,7 +27,7 @@ gulp.task('serve',['less','templates','copyJs','copyFt'], function() {
     gulp.watch("src/js/**", ['copyJs',browserSync.reload]);
 
     gulp.watch("src/fonts/**", ['copyFt']);
-    gulp.watch("src/images/**", ['copyImg']);
+    gulp.watch("src/images/**", ['imageisux']);
 });
 
 
@@ -68,10 +68,11 @@ gulp.task('copyFt',function(){
            .pipe(gulp.dest('dist/fonts/'))
 });
 
-gulp.task('copyImg',function(){
-    return gulp.src("src/images/**")
-           .pipe(copy())
-           .pipe(gulp.dest('dist/images/'))
+
+
+gulp.task('imageisux', function() {
+    return gulp.src('src/images/**')
+               .pipe(imageisux("dist/images/",true));
 });
 
 gulp.task('default', ['serve']);
