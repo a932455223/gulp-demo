@@ -15,3 +15,6 @@ npm start
 
 ### css precompile
 项目使用 `less` 编译生成`css`文件，并使用`postcss`的`autoprefixer`和`nano`
+
+### image compress
+使用 [智图](http://zhitu.isux.us/) 的 [gulp-imageisux](https://github.com/targetkiller/gulp-imageisux) 插件 
