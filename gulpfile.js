@@ -8,8 +8,18 @@ let cssnano = require('cssnano');
 let postcss = require('gulp-postcss');
 let plumber = require('gulp-plumber');
 let imageisux = require('gulp-imageisux');
+let gulpif = require('gulp-if');
+let uglify = require('gulp-uglify');
+let minimist = require('minimist');
+let htmlmin = require('gulp-htmlmin');
+let knownOptions = {
+  string: 'env',
+  default: { env: process.env.NODE_ENV || 'production' }
+};
 
+let options = minimist(process.argv.slice(2), knownOptions);
 
+let isProduction = options.env === 'production';
 
 gulp.task('serve',['less','templates','copyJs','copyFt'], function() {
     browserSync.init({
@@ -39,13 +49,19 @@ gulp.task('templates',function(){
             cache:false
         }
     }))
+  .pipe(gulpif(isProduction,htmlmin({collapseWhitespace: true})))
   .pipe(gulp.dest('./dist/view/'))
 });
 
+ 
+  
 
 gulp.task('less', function () {
 
-  let processors = [ autoprefixer({browsers:'last 2 version'}), cssnano ];
+ let processors = [ autoprefixer({browsers:'last 2 version'})];
+  if(isProduction){
+    processors.push(cssnano);
+  }
 
    return gulp.src(["src/less/common.less","src/less/index.less"])
         .pipe(plumber())
@@ -57,7 +73,7 @@ gulp.task('less', function () {
 
 gulp.task('copyJs',function(){
     return gulp.src("src/js/**")
-           .pipe(copy())
+           .pipe(gulpif(isProduction,uglify(),copy()))
            .pipe(gulp.dest('dist/js/'))
 });
 
@@ -76,3 +92,5 @@ gulp.task('imageisux', function() {
 });
 
 gulp.task('default', ['serve']);
+
+gulp.task('build',['templates','less','copyJs','imageisux']);

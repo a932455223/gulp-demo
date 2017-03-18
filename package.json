@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
+    "build": "gulp build --env production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,11 +25,15 @@
     "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
     "gulp-contrib-copy": "^0.1.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
     "gulp-imageisux": "^1.0.5",
     "gulp-less": "^3.3.0",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.3.0",
     "gulp-sass": "^3.1.0",
-    "gulp-swig": "^0.8.0"
+    "gulp-swig": "^0.8.0",
+    "gulp-uglify": "^2.1.0",
+    "minimist": "^1.2.0"
   }
 }
